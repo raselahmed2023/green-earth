@@ -9,7 +9,6 @@ const levelCategories = () => {
 //2 
 
 const showCategories = (l) => {
-    
 
     const categoriesContainer = document.getElementById('categoriesContainer');
     categoriesContainer.innerHTML = '';
@@ -20,7 +19,7 @@ const showCategories = (l) => {
         const levBtn = document.createElement('div');
         // levBtn.innerHTML = level.category_name;
         levBtn.innerHTML = `
-        <div id="categoriesContainer" class=" btn w-full space-y-2">${level.category_name}</div>`
+        <div id="categoriesContainer" class=" btn w-full space-y-2"><button onclick="categoriesTress(${level.category_name})">${level.category_name}</button></div>`
         // levBtn.className="btn btn-outline w-full space-y-2";
         categoriesContainer.appendChild(levBtn);
     }
@@ -28,6 +27,15 @@ const showCategories = (l) => {
 
 }
 
+
+//3
+
+const categoriesTress = () => {
+    const url = `https://openapi.programming-hero.com/api/category/${id}`
+    fetch(url)
+        .then((res) => res.json())
+        .then((data)=> console.log(data))
+}
 
 
 // loading
